@@ -1,0 +1,13 @@
+pandas
+tqdm
+numpy
+scipy
+scikit-learn
+cytoolz
+clean-text
+regex
+torch
+
+[dev]
+pytest>=7.0
+twine>=4.0.2
