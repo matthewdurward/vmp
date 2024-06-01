@@ -24,7 +24,7 @@ class TextCleaner:
         return text.strip()
 
     def _clean_text(self, text):
-        plm_special_tokens = r'(\<pad\>)|(\<s\>)|(\\<s\>)|(\<\/s\>)|(\<unk\>)|(\\<\|endoftext\|\>)'
+        plm_special_tokens = r'(\<pad\>)|(\<s\>)|(\\<\|endoftext\|\>)'
         text = re.sub(plm_special_tokens, "", text)
         text = clean(text,
                      fix_unicode=True,
@@ -94,7 +94,7 @@ class DataLoader:
             df[src_column] = df.index.astype(str)
         elif file_type == 'gz':
             df = pd.read_csv(file_path, compression='gzip', encoding=self.encoding)
-            df[src_column] = df.index.astype(str)
+            df[src_column] = df.index.astype (str)
         elif file_type == 'txt':
             text = self.load(file_path)
             df = pd.DataFrame([[text, os.path.basename(file_path)]], columns=[text_column, src_column])
@@ -103,7 +103,7 @@ class DataLoader:
 
         return df[[text_column, src_column]]
 
-# VMPProcessor Class
+# VMP Class
 def load_common_words(file_path, num_words):
     with open(file_path, 'r') as file:
         lines = file.readlines()
@@ -164,15 +164,16 @@ def vmp(cleaned_tokens, delta_x):
 
     return intervals
 
-class VMPProcessor:
-    def __init__(self, common_words_file=None, common_words_url=None, num_common_words=1000):
+class VMP:
+    def __init__(self, common_words_file=None, common_words_url=None, num_common_words=None):
         self.common_words_file = common_words_file
         self.common_words_url = common_words_url
         self.common_words_list = []
         self.text_cleaner = TextCleaner()
 
         # Load and store the common words list during initialization
-        self.load_common_words(num_common_words)
+        if num_common_words is not None:
+            self.load_common_words(num_common_words)
 
     def load_common_words(self, num_words):
         if self.common_words_file:
@@ -213,13 +214,20 @@ class VMPProcessor:
     def process_row(self, row, delta_values, common_words_option):
         return self.process_text(row['text'], delta_values, row['src'], common_words_option)
 
-    def create_nested_vmp_dict(self, df, delta_values, common_words_option, chunksize=10):
+    @staticmethod
+    def calculate(data, delta_values, common_words_option):
+        vmp_instance = VMP()
         all_processed_results = {}
 
-        tasks = [(row, delta_values, common_words_option) for _, row in df.iterrows()]
+        if isinstance(data, list):
+            tasks = [(pd.Series({'text': text, 'src': f'text_{i}'}), delta_values, common_words_option) for i, text in enumerate(data)]
+        elif isinstance(data, pd.DataFrame):
+            tasks = [(row, delta_values, common_words_option) for _, row in data.iterrows()]
+        else:
+            raise ValueError("data should be a list of strings or a pandas DataFrame")
 
         with ProcessPoolExecutor(max_workers=cpu_count()) as executor:
-            futures = {executor.submit(self.process_row_wrapper, task): task for task in tasks}
+            futures = {executor.submit(vmp_instance.process_row_wrapper, task): task for task in tasks}
             for future in tqdm(as_completed(futures), total=len(futures), desc="Processing rows"):
                 result = future.result()
                 all_processed_results.update(result)
