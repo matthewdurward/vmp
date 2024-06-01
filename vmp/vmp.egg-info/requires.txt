@@ -1,6 +1,6 @@
 pandas
 tqdm
-clean-text[gpl]
+clean-text
 regex
 requests
 

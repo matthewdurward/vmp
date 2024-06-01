@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: vmp
-Version: 0.0.3
+Version: 0.0.4
 Summary: Generating Vocabulary Management Profiles in Python
 Home-page: https://github.com/matthewdurward/vmp
 Author: Matthew Durward, Christopher Thomson

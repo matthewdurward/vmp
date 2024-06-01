@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name="vmp",
-    version="0.0.3",  # Updated version number
+    version="0.0.4",  # Updated version number
     author="Matthew Durward, Christopher Thomson",
     author_email="matthew.durward@pg.canterbury.ac.nz",
     description="Generating Vocabulary Management Profiles in Python",
@@ -24,7 +24,7 @@ setup(
     install_requires=[
         'pandas',
         'tqdm',
-        'clean-text[gpl]',
+        'clean-text',
         'regex',
         'requests',
     ],

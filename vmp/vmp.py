@@ -42,8 +42,8 @@ class TextCleaner:
                      replace_with_url="",
                      replace_with_email="",
                      replace_with_phone_number="",
-                     replace_with_number="<NUMB>",
-                     replace_with_digit="<DIGIT>",
+                     replace_with_number="<NUM>",
+                     replace_with_digit="<DIG>",
                      replace_with_currency_symbol="<CUR>",
                      lang="en")
 
@@ -164,7 +164,7 @@ def vmp(cleaned_tokens, delta_x):
 
     return intervals
 
-class VMP:
+class vmp:
     def __init__(self, common_words_file=None, common_words_url=None, num_common_words=None):
         self.common_words_file = common_words_file
         self.common_words_url = common_words_url
@@ -216,7 +216,7 @@ class VMP:
 
     @staticmethod
     def calculate(data, delta_values, common_words_option):
-        vmp_instance = VMP()
+        vmp_instance = vmp()
         all_processed_results = {}
 
         if isinstance(data, list):
