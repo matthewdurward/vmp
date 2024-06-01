@@ -19,7 +19,7 @@ The **VMP.calculate** method requires a text or corpus input. These can be loade
 
 # Output
 
-The output is a dictionary of dataframes that return the delta_x value, vocabulary option, the last word of the moving interval, and the location of the last word token within a window. scalar measure of how similar the two corpora are. The values fall between 0 (very different) and 1 (very similar). The values are consistent within languages, but not across languages. For example, Swedish has higher relative similarity than Estonian.
+The output is a dictionary of dataframes that return the delta_x value and vocabulary option. Dataframes consist of the Midpoint (the last word of the moving interval, and the location of the last word token within a window. The 
 
 # Installation
 
