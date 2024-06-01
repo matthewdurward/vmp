@@ -1,12 +1,8 @@
 pandas
 tqdm
-numpy
-scipy
-scikit-learn
-cytoolz
-clean-text
+clean-text[gpl]
 regex
-torch
+requests
 
 [dev]
 pytest>=7.0

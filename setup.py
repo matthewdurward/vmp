@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name="vmp",
-    version="0.0.2",
+    version="0.0.2",  # Updated version number
     author="Matthew Durward, Christopher Thomson",
     author_email="matthew.durward@pg.canterbury.ac.nz",
     description="Generating Vocabulary Management Profiles in Python",
@@ -20,19 +20,13 @@ setup(
     packages=find_packages(where="vmp"),
     license="GNU GENERAL PUBLIC LICENSE v3",
     url="https://github.com/matthewdurward/vmp",
-    keywords="text analytics, natural language processing, computational linguistics, vocabulary, lexical diversity, corpus, corpora, discourse, narrative",
+    keywords="text analytics, natural language processing, computational linguistics, vocabulary, lexical diversity, corpus, corpora",
     install_requires=[
         'pandas',
         'tqdm',
-        'numpy',
-        'scipy',
-        'scikit-learn',
-        'cytoolz',
-        'clean-text[gpl]',  # Note the use of the gpl extra
+        'clean-text[gpl]',
         'regex',
-        'torch',
         'requests',
-        'multiprocess',
     ],
     extras_require={
         "dev": ["pytest>=7.0", "twine>=4.0.2"],
@@ -41,5 +35,3 @@ setup(
     long_description=read('Readme.md'),
     long_description_content_type='text/markdown',
 )
-
-print("Long description content type:", "text/markdown")  # Debug print
