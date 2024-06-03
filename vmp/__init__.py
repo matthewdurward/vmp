@@ -1,1 +1,1 @@
-from vmp import vmp
+from .vmp import vmp
