@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: vmp
-Version: 0.0.5
+Version: 0.0.6
 Summary: Generating Vocabulary Management Profiles in Python
 Home-page: https://github.com/matthewdurward/vmp
 Author: Matthew Durward, Christopher Thomson
@@ -84,15 +84,15 @@ The **VMP.calculate** method requires a text or corpus input. These can be loade
 
 The vmp.calculate function returns a dictionary where the results are structured as follows:
 
-index: The index position of the interval in the original text.
-last_pos: The position of the last token in the interval within the original text.
-avg_score: The average score for the interval, representing the relative distance of repeated tokens within the window.
-last_word: The last word in the interval.
-context: The text within the interval, providing context for the analysis.
-last_previous_position: A dictionary showing the last previous position of each token in the interval before the current window.
-filename: The source filename or identifier of the text being analyzed.
-delta: The size of the interval (window) used in the analysis.
-vocab_option: Indicates whether common words were replaced with 'x' (commonYes) or not (commonNo).
+    index: The index position of the interval in the original text.
+    last_pos: The position of the last token in the interval within the original text.
+    avg_score: The average score for the interval, representing the relative distance of repeated tokens within the window.
+    last_word: The last word in the interval.
+    context: The text within the interval, providing context for the analysis.
+    last_previous_position: A dictionary showing the last previous position of each token in the interval before the current window.
+    filename: The source filename or identifier of the text being analyzed.
+    delta_x: The size of the interval (window) used in the analysis.
+    vocab_option: Indicates whether common words were replaced with 'x' (commonYes) or not (commonNo).
 
 # Installation
 
