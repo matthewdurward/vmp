@@ -1,0 +1,8 @@
+setup.py
+./vmp/__init__.py
+./vmp/vmp.py
+vmp.egg-info/PKG-INFO
+vmp.egg-info/SOURCES.txt
+vmp.egg-info/dependency_links.txt
+vmp.egg-info/requires.txt
+vmp.egg-info/top_level.txt

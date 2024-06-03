@@ -2,7 +2,7 @@
 
 Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (text datasets). 
 
-    from vmp import vmp, DataLoader
+    from vmp import VMP, LoadData
     
     # Example 1: Using a list of strings
     data = ["This is the first text.", "Here is the second text."]
@@ -19,7 +19,7 @@ Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (
     print(result)
 
     # Example 2: Using a DataFrame with .txt files
-    data_loader = DataLoader()
+    data_loader = LoadData()
     df_txt = data_loader.load_data('path_to_your_txt_files_directory', file_type='txt')
     result_txt = vmp.calculate(
         data=df_txt,
@@ -34,6 +34,7 @@ Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (
     print(result_txt)
 
     # Example 3: Using a DataFrame with .csv file
+    data_loader = LoadData()
     df_csv = data_loader.load_data('path_to_your_csv_file.csv', file_type='csv')
     result_csv = vmp.calculate(
         data=df_csv,
@@ -48,6 +49,7 @@ Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (
     print(result_csv)
 
     # Example 4: Using a DataFrame with .gz file
+    data_loader = LoadData()
     df_gz = data_loader.load_data('path_to_your_gz_file.gz', file_type='gz')
     result_gz = vmp.calculate(
         data=df_gz,

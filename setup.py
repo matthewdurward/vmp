@@ -12,12 +12,12 @@ def read(fname):
 
 setup(
     name="vmp",
-    version="0.0.7",  # Updated version number
+    version="0.0.12",
     author="Matthew Durward, Christopher Thomson",
     author_email="matthew.durward@pg.canterbury.ac.nz",
     description="Generating Vocabulary Management Profiles in Python",
-    package_dir={"": "vmp"},
-    packages=find_packages(where="vmp"),
+    package_dir={"": "."},
+    packages=find_packages(where="."),
     license="GNU GENERAL PUBLIC LICENSE v3",
     url="https://github.com/matthewdurward/vmp",
     keywords="text analytics, natural language processing, computational linguistics, vocabulary, lexical diversity, corpus, corpora",
