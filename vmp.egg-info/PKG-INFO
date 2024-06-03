@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: vmp
-Version: 0.0.12
+Version: 0.0.13
 Summary: Generating Vocabulary Management Profiles in Python
 Home-page: https://github.com/matthewdurward/vmp
 Author: Matthew Durward, Christopher Thomson
@@ -18,7 +18,7 @@ Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (
     
     # Example 1: Using a list of strings
     data = ["This is the first text.", "Here is the second text."]
-    result = vmp.calculate(
+    result = VMP.calculate(
         data=data,
         delta_values=[9, 11],  # Select odd number/s for delta values
         common_words_option='both',  # Options: 'yes', 'no', 'both'
@@ -33,7 +33,7 @@ Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (
     # Example 2: Using a DataFrame with .txt files
     data_loader = LoadData()
     df_txt = data_loader.load_data('path_to_your_txt_files_directory', file_type='txt')
-    result_txt = vmp.calculate(
+    result_txt = VMP.calculate(
         data=df_txt,
         delta_values=[9, 11],  # Select odd number/s for delta values
         common_words_option='both',  # Options: 'yes', 'no', 'both'
@@ -48,7 +48,7 @@ Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (
     # Example 3: Using a DataFrame with .csv file
     data_loader = LoadData()
     df_csv = data_loader.load_data('path_to_your_csv_file.csv', file_type='csv')
-    result_csv = vmp.calculate(
+    result_csv = VMP.calculate(
         data=df_csv,
         delta_values=[9, 11],  # Select odd number/s for delta values
         common_words_option='both',  # Options: 'yes', 'no', 'both'
@@ -63,7 +63,7 @@ Generate Vocabulary Management Profiles (vmp) for an individual text or corpus (
     # Example 4: Using a DataFrame with .gz file
     data_loader = LoadData()
     df_gz = data_loader.load_data('path_to_your_gz_file.gz', file_type='gz')
-    result_gz = vmp.calculate(
+    result_gz = VMP.calculate(
         data=df_gz,
         delta_values=[9, 11],  # Select odd number/s for delta values
         common_words_option='both',  # Options: 'yes', 'no', 'both'

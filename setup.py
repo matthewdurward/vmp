@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name="vmp",
-    version="0.0.12",
+    version="0.0.13",
     author="Matthew Durward, Christopher Thomson",
     author_email="matthew.durward@pg.canterbury.ac.nz",
     description="Generating Vocabulary Management Profiles in Python",
